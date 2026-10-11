@@ -171,15 +171,21 @@
 
     <!-- Script to Load Dynamic JSON Data -->
     <script>
-        async function loadContent() {
-            // Load News
-            try {
-                const newsRes = await fetch('./data/news.json');
-                const newsList = await newsRes.json();
-                const newsContainer = document.getElementById('news-container');
-                newsContainer.innerHTML = '';
-                
-                newsList.forEach(item => {
+    async function loadContent() {
+        // Load News Items from GitHub API or data folder
+        try {
+            // Fetch list of news files created inside data/news folder
+            const repoRes = await fetch('https://api.github.com/repos/Anjanlcm/sangam-website/contents/data/news');
+            const files = await repoRes.json();
+            
+            const newsContainer = document.getElementById('news-container');
+            newsContainer.innerHTML = '';
+
+            for (const file of files) {
+                if (file.name.endsWith('.json')) {
+                    const itemRes = await fetch(file.download_url);
+                    const item = await itemRes.json();
+                    
                     newsContainer.innerHTML += `
                         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition flex flex-col justify-between">
                             <div>
@@ -190,31 +196,40 @@
                             </div>
                         </div>
                     `;
-                });
-            } catch(e) {
-                document.getElementById('news-container').innerHTML = '<p class="text-sm text-slate-500">No news updates published yet.</p>';
+                }
             }
+        } catch(e) {
+            console.error("Error loading news:", e);
+            document.getElementById('news-container').innerHTML = '<p class="text-sm text-slate-500">No news updates published yet.</p>';
+        }
 
-            // Load Gallery
-            try {
-                const galleryRes = await fetch('./data/gallery.json');
-                const galleryList = await galleryRes.json();
-                const galleryContainer = document.getElementById('gallery-container');
-                galleryContainer.innerHTML = '';
+        // Load Gallery Items
+        try {
+            const galleryRepoRes = await fetch('https://api.github.com/repos/Anjanlcm/sangam-website/contents/data/gallery');
+            const galleryFiles = await galleryRepoRes.json();
+            
+            const galleryContainer = document.getElementById('gallery-container');
+            galleryContainer.innerHTML = '';
 
-                galleryList.forEach(item => {
+            for (const file of galleryFiles) {
+                if (file.name.endsWith('.json')) {
+                    const itemRes = await fetch(file.download_url);
+                    const item = await itemRes.json();
+                    
                     galleryContainer.innerHTML += `
                         <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-200/80">
                             <img src="${item.image}" class="w-full h-52 object-cover rounded-xl mb-3" alt="Gallery Photo">
                             <h4 class="text-sm font-semibold text-slate-800 px-1">${item.title}</h4>
                         </div>
                     `;
-                });
-            } catch(e) {
-                document.getElementById('gallery-container').innerHTML = '<p class="text-sm text-slate-500">No gallery photos added yet.</p>';
+                }
             }
+        } catch(e) {
+            console.error("Error loading gallery:", e);
+            document.getElementById('gallery-container').innerHTML = '<p class="text-sm text-slate-500">No gallery photos added yet.</p>';
         }
-        loadContent();
-    </script>
+    }
+    loadContent();
+</script>
 </body>
 </html>
