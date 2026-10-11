@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institutional Gallery | Sangam Management Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 50: '#f0f4f8', 100: '#d9e2ec', 800: '#102a43', 900: '#0a2540', 950: '#061729' },
+                        emerald: { 500: '#00b894', 600: '#00a383', 700: '#008b6f' }
+                    },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>.card-hover { transition: all 0.3s ease; } .card-hover:hover { transform: translateY(-4px); box-shadow: 0 15px 25px -5px rgba(0,0,0,0.1); }</style>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased">
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center text-emerald-500 font-bold text-2xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div><span class="block text-xl font-extrabold text-navy-900 leading-none">SANGAM</span><span class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Management Service</span></div>
+            </a>
+            <nav class="hidden md:flex items-center gap-7 font-medium text-slate-600 text-sm">
+                <a href="index.html" class="hover:text-navy-900">Home</a>
+                <a href="news.html" class="hover:text-navy-900">All News</a>
+                <a href="gallery.html" class="text-emerald-600 font-semibold">Full Gallery</a>
+            </nav>
+            <a href="index.html#contact" class="bg-navy-900 text-white text-xs font-semibold px-4 py-2.5 rounded-lg">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-navy-900 text-white py-16 text-center">
+        <h1 class="text-3xl sm:text-4xl font-extrabold">Institutional Gallery & Facilities</h1>
+        <p class="text-slate-300 text-sm mt-2">Explore photos of our training rooms, orientation sessions, and facilities. Click any image to view larger.</p>
+    </section>
+
+    <!-- Full Gallery Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div id="full-gallery-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <p class="text-sm text-slate-500 italic">Loading gallery photos...</p>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-navy-950/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-emerald-400 focus:outline-none"><i class="fa-solid fa-xmark"></i></button>
+        <div class="max-w-4xl w-full text-center space-y-3">
+            <img id="modalImage" src="" class="max-h-[80vh] mx-auto rounded-2xl shadow-2xl object-contain border border-navy-800" alt="Expanded View">
+            <h3 id="modalCaption" class="text-white text-base font-semibold px-4"></h3>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-slate-400 text-xs py-8 text-center border-t border-navy-900">
+        <p>&copy; 2026 Sangam Management Service. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openModal(imgSrc, caption) {
+            document.getElementById('modalImage').src = imgSrc;
+            document.getElementById('modalCaption').innerText = caption || '';
+            document.getElementById('imageModal').classList.remove('hidden');
+        }
+        function closeModal() {
+            document.getElementById('imageModal').classList.add('hidden');
+        }
+
+        async function loadFullGallery() {
+            try {
+                const res = await fetch('https://api.github.com/repos/Anjanlcm/sangam-website/contents/data/gallery');
+                const files = await res.json();
+                const container = document.getElementById('full-gallery-container');
+                if (container && Array.isArray(files)) {
+                    container.innerHTML = '';
+                    let hasPhotos = false;
+                    for (const file of files) {
+                        if (file.name.endsWith('.json')) {
+                            const item = await (await fetch(file.download_url)).json();
+                            if (item.photos && Array.isArray(item.photos)) {
+                                for (const p of item.photos) {
+                                    if (p.image) {
+                                        hasPhotos = true;
+                                        container.innerHTML += `
+                                            <div class="bg-white p-3 rounded-2xl border border-slate-200 card-hover shadow-sm cursor-pointer" onclick="openModal('${p.image}', '${p.caption || ''}')">
+                                                <img src="${p.image}" class="w-full h-56 object-cover rounded-xl ${p.caption ? 'mb-3' : ''}" alt="Gallery Photo">
+                                                ${p.caption ? `<h4 class="text-sm font-semibold text-navy-900 px-1 text-center truncate">${p.caption}</h4>` : ''}
+                                            </div>
+                                        `;
+                                    }
+                                }
+                            } else if (item.image) {
+                                hasPhotos = true;
+                                container.innerHTML += `
+                                    <div class="bg-white p-3 rounded-2xl border border-slate-200 card-hover shadow-sm cursor-pointer" onclick="openModal('${item.image}', '${item.title || ''}')">
+                                        <img src="${item.image}" class="w-full h-56 object-cover rounded-xl ${item.title ? 'mb-3' : ''}" alt="Gallery Photo">
+                                        ${item.title ? `<h4 class="text-sm font-semibold text-navy-900 px-1 text-center truncate">${item.title}</h4>` : ''}
+                                    </div>
+                                `;
+                            }
+                        }
+                    }
+                    if (!hasPhotos) {
+                        container.innerHTML = '<p class="text-sm text-slate-500">No gallery photos added yet.</p>';
+                    }
+                }
+            } catch (e) { document.getElementById('full-gallery-container').innerHTML = '<p class="text-sm text-slate-500">No gallery photos added yet.</p>'; }
+        }
+        loadFullGallery();
+    </script>
+</body>
+</html>
