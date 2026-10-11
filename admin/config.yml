@@ -25,5 +25,11 @@ collections:
     create: true
     format: "json"
     fields:
-      - {label: "Photo Title", name: "title", widget: "string"}
-      - {label: "Photo Image", name: "image", widget: "image"}
+      - {label: "Entry Name / Batch Note", name: "title", widget: "string", required: false, hint: "Optional label for this batch"}
+      - label: "Photos List"
+        name: "photos"
+        widget: "list"
+        summary: '{{fields.image}}'
+        fields:
+          - {label: "Photo Image", name: "image", widget: "image"}
+          - {label: "Caption / Title", name: "caption", widget: "string", required: false}
