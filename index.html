@@ -23,15 +23,21 @@
     <style>
         .card-hover { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .card-hover:hover { transform: translateY(-6px); box-shadow: 0 25px 30px -10px rgba(0, 0, 0, 0.12); }
-        /* Enhanced, highly visible Apple-style scroll reveal */
+        
+        /* Cinematic Multi-Directional Scroll Reveal Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(50px) scale(0.98);
-            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
         }
+        .reveal-up { transform: translateY(70px); }
+        .reveal-down { transform: translateY(-70px); }
+        .reveal-left { transform: translateX(-80px); }
+        .reveal-right { transform: translateX(80px); }
+
         .reveal.active {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translate(0, 0) scale(1);
         }
     </style>
 </head>
@@ -78,12 +84,12 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Reveals from Top) -->
     <section class="relative text-white overflow-hidden py-28 lg:py-36">
         <div class="absolute inset-0 bg-cover bg-center bg-fixed z-0 scale-105 transition-transform duration-1000" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80');"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-navy-950/90 via-navy-900/85 to-navy-950/95 z-0"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal reveal-down">
             <div class="grid lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider backdrop-blur-md">
@@ -109,8 +115,8 @@
         </div>
     </section>
 
-    <!-- Stats Bar -->
-    <section class="bg-white border-y border-slate-200/80 py-12 reveal">
+    <!-- Stats Bar (Reveals from Bottom) -->
+    <section class="bg-white border-y border-slate-200/80 py-12 reveal reveal-up">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 lg:grid-cols-5 gap-6 text-center">
                 <div class="bg-slate-50/80 p-5 rounded-2xl border border-slate-100 card-hover">
@@ -137,13 +143,13 @@
         </div>
     </section>
 
-    <!-- About & Particulars Section -->
+    <!-- About & Particulars Section (Left & Right Split Animation) -->
     <section id="about" class="py-24 bg-slate-50 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
             <div class="grid lg:grid-cols-12 gap-12 items-start">
                 
-                <!-- Left Intro Column -->
-                <div class="lg:col-span-7 space-y-6 reveal">
+                <!-- Left Intro Column (Slides in from Left) -->
+                <div class="lg:col-span-7 space-y-6 reveal reveal-left">
                     <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider">Institutional Profile</span>
                     <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 leading-tight">Introduction to Sangam Management Service</h2>
                     <p class="text-slate-600 text-base leading-relaxed">
@@ -164,8 +170,8 @@
                     </div>
                 </div>
 
-                <!-- Right Particulars Card Column -->
-                <div class="lg:col-span-5 reveal">
+                <!-- Right Particulars Card Column (Slides in from Right) -->
+                <div class="lg:col-span-5 reveal reveal-right">
                     <div id="info" class="bg-gradient-to-br from-navy-900 to-navy-950 text-white rounded-3xl shadow-2xl border border-navy-800 overflow-hidden">
                         <div class="p-6 border-b border-navy-800/80 flex items-center justify-between">
                             <div>
@@ -215,8 +221,8 @@
 
             </div>
 
-            <!-- Restored Clean CEO Desk Layout -->
-            <div class="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm grid md:grid-cols-12 gap-8 items-center card-hover reveal">
+            <!-- CEO Desk Layout (Slides in from Bottom) -->
+            <div class="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm grid md:grid-cols-12 gap-8 items-center card-hover reveal reveal-up">
                 <div class="md:col-span-4 text-center">
                     <div class="relative w-40 h-40 mx-auto rounded-2xl overflow-hidden shadow-lg border-4 border-navy-900">
                         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Sirjana KC - CEO" class="w-full h-full object-cover">
@@ -236,8 +242,8 @@
         </div>
     </section>
 
-    <!-- Main Objectives and Programmes -->
-    <section id="programs" class="py-24 bg-white reveal">
+    <!-- Main Objectives and Programmes (Reveals from Left) -->
+    <section id="programs" class="py-24 bg-white reveal reveal-left">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
                 <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider">Core Offerings</span>
@@ -278,8 +284,8 @@
         </div>
     </section>
 
-    <!-- MLVK Malaysia Affiliation & Trained Teachers -->
-    <section id="mlvk" class="py-24 bg-slate-50 border-t border-slate-200/80 reveal">
+    <!-- MLVK Malaysia Affiliation & Trained Teachers (Reveals from Right) -->
+    <section id="mlvk" class="py-24 bg-slate-50 border-t border-slate-200/80 reveal reveal-right">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-gradient-to-r from-navy-900 to-navy-950 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
                 <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
@@ -321,8 +327,8 @@
         </div>
     </section>
 
-    <!-- Management & Training Team -->
-    <section id="team" class="py-24 bg-white border-t border-slate-200/80 reveal">
+    <!-- Management & Training Team (Reveals from Bottom) -->
+    <section id="team" class="py-24 bg-white border-t border-slate-200/80 reveal reveal-up">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
                 <span class="px-3 py-1 rounded-full bg-navy-100 text-navy-800 text-xs font-semibold uppercase tracking-wider">Our People</span>
@@ -373,8 +379,8 @@
         </div>
     </section>
 
-    <!-- NEWS & EVENTS PREVIEW (Max 3 Items) -->
-    <section id="news" class="py-24 bg-slate-50 border-t border-slate-200/80 reveal">
+    <!-- NEWS & EVENTS PREVIEW (Reveals from Left) -->
+    <section id="news" class="py-24 bg-slate-50 border-t border-slate-200/80 reveal reveal-left">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4">
                 <div>
@@ -391,8 +397,8 @@
         </div>
     </section>
 
-    <!-- GALLERY PREVIEW (Max 6 Items) -->
-    <section id="gallery" class="py-24 bg-white border-t border-slate-200/80 reveal">
+    <!-- GALLERY PREVIEW (Reveals from Right) -->
+    <section id="gallery" class="py-24 bg-white border-t border-slate-200/80 reveal reveal-right">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12 gap-4">
                 <div>
@@ -409,8 +415,8 @@
         </div>
     </section>
 
-    <!-- CONTACT US & GOOGLE MAP SECTION -->
-    <section id="contact" class="py-24 bg-slate-50 border-t border-slate-200/80 reveal">
+    <!-- CONTACT US & GOOGLE MAP SECTION (Reveals from Bottom) -->
+    <section id="contact" class="py-24 bg-slate-50 border-t border-slate-200/80 reveal reveal-up">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
                 <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider">Get In Touch</span>
@@ -517,7 +523,7 @@
 
     <!-- Scripts -->
     <script>
-        // Highly visible Intersection Observer for animations
+        // Intersection Observer for multi-directional scroll reveals
         const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -80px 0px' };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
