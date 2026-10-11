@@ -34,25 +34,12 @@
         }
     </script>
     <style>
-        .gradient-overlay {
-            background: linear-gradient(135deg, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.8) 100%);
-        }
         .card-hover {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #00b894;
-            border-radius: 3px;
         }
     </style>
 </head>
@@ -63,19 +50,19 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
             <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
                 <span class="inline-flex items-center gap-1.5 text-emerald-400 font-semibold">
-                    <i class="fa-solid fa-circle-check text-[10px]"></i> DOFE Licence No: 032/065/066[cite: 4]
+                    <i class="fa-solid fa-circle-check text-[10px]"></i> DOFE Licence No: 032/065/066
                 </span>
                 <span class="hidden sm:inline text-navy-800">|</span>
-                <span><i class="fa-solid fa-building text-slate-400 mr-1"></i> Reg No: 30833/061/062[cite: 4]</span>
+                <span><i class="fa-solid fa-building text-slate-400 mr-1"></i> Reg No: 30833/061/062</span>
                 <span class="hidden sm:inline text-navy-800">|</span>
-                <span><i class="fa-solid fa-receipt text-slate-400 mr-1"></i> VAT: 301741439[cite: 4]</span>
+                <span><i class="fa-solid fa-receipt text-slate-400 mr-1"></i> VAT: 301741439</span>
             </div>
             <div class="flex items-center gap-4">
                 <a href="tel:014111646" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
-                    <i class="fa-solid fa-phone text-emerald-500"></i> 01-4111646 / 98510610065[cite: 4]
+                    <i class="fa-solid fa-phone text-emerald-500"></i> 01-4111646 / 98510610065
                 </a>
                 <span class="text-navy-800">|</span>
-                <span class="flex items-center gap-1"><i class="fa-solid fa-location-dot text-emerald-500"></i> Tinkune, Kathmandu[cite: 4]</span>
+                <span class="flex items-center gap-1"><i class="fa-solid fa-location-dot text-emerald-500"></i> Tinkune, Kathmandu</span>
             </div>
         </div>
     </div>
@@ -108,58 +95,38 @@
                         <i class="fa-solid fa-globe text-emerald-500"></i>
                         <span id="currentLangLabel">EN | नेपाली</span>
                     </button>
-
                     <button onclick="openVerificationModal()" class="hidden sm:inline-flex items-center gap-2 bg-navy-900 text-white text-xs font-semibold px-4 py-2.5 rounded-lg hover:bg-emerald-600 transition-all shadow-md">
                         <i class="fa-solid fa-shield-halved text-emerald-400"></i>
                         <span data-lang-en="Verify Certificate" data-lang-np="प्रमाणपत्र प्रमाणीकरण">Verify Certificate</span>
                     </button>
-
-                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
-                        <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
-                    </button>
                 </div>
             </div>
-        </div>
-
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
-            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium border-b border-slate-100">About Us</a>
-            <a href="#programs" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium border-b border-slate-100">Training Programs</a>
-            <a href="#news" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium border-b border-slate-100">News & Events</a>
-            <a href="#gallery" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium border-b border-slate-100">Gallery</a>
-            <a href="#team" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium border-b border-slate-100">Management Team</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium">Contact</a>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="relative bg-navy-900 text-white overflow-hidden py-20 lg:py-28">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#00b894_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"></div>
-        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                     <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy-800/80 border border-navy-800 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
-                        <i class="fa-solid fa-award"></i> Government Approved PDOT Institution[cite: 4]
+                        <i class="fa-solid fa-award"></i> Government Approved PDOT Institution
                     </div>
                     
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white" data-lang-en="Empowering Nepali Workers for Safe, Skilled & Responsible Foreign Employment" data-lang-np="सुरक्षित, सीपयुक्त र जिम्मेवार वैदेशिक रोजगारका लागि नेपाली श्रमिकको सशक्तीकरण">
-                        Empowering Nepali Workers for <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Safe, Skilled & Responsible</span> Foreign Employment[cite: 4]
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white">
+                        Empowering Nepali Workers for <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Safe, Skilled & Responsible</span> Foreign Employment
                     </h1>
                     
-                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl font-light leading-relaxed mx-auto lg:mx-0" data-lang-en="Sangam Management Service provides government-accredited pre-departure orientation, housemaid training, caregiver, and technical skill preparation in Tinkune, Kathmandu." data-lang-np="संगम म्यानेजमेन्ट सर्भिसले तिनकुने, काठमाडौँमा सरकारबाट मान्यता प्राप्त पूर्व-प्रस्थान अभिमुखीकरण, घरेलु कामदार, हेरचाहकर्ता र प्राविधिक सीप तालिम प्रदान गर्दछ।">
-                        Sangam Management Service provides government-accredited pre-departure orientation, housemaid training, caregiver, and technical skill preparation in Tinkune, Kathmandu[cite: 4].
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                        Sangam Management Service provides government-accredited pre-departure orientation, housemaid training, caregiver, and technical skill preparation in Tinkune, Kathmandu.
                     </p>
 
                     <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                         <a href="#programs" class="w-full sm:w-auto bg-emerald-500 text-navy-950 font-bold px-8 py-3.5 rounded-xl hover:bg-emerald-400 transition-all shadow-lg text-center flex items-center justify-center gap-2">
-                            <span>Explore Programs</span>
-                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                            <span>Explore Programs</span> <i class="fa-solid fa-arrow-right text-xs"></i>
                         </a>
                         <button onclick="openVerificationModal()" class="w-full sm:w-auto bg-navy-800/80 hover:bg-navy-800 border border-navy-700 text-white font-semibold px-8 py-3.5 rounded-xl transition-all text-center flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-magnifying-glass text-emerald-400"></i>
-                            <span>Verify Certificate / Batch</span>
+                            <i class="fa-solid fa-magnifying-glass text-emerald-400"></i> <span>Verify Certificate / Batch</span>
                         </button>
                     </div>
                 </div>
@@ -171,29 +138,22 @@
                                 <h3 class="font-bold text-navy-900 text-lg">Quick Certificate Check</h3>
                                 <p class="text-xs text-slate-500">Verify trainee completion status</p>
                             </div>
-                            <span class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg font-bold">
-                                <i class="fa-solid fa-qrcode"></i>
-                            </span>
+                            <span class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-qrcode"></i></span>
                         </div>
-
                         <form onsubmit="handleQuickCheck(event)" class="space-y-4">
                             <div>
                                 <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Select Document Type</label>
-                                <select id="docType" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-emerald-500 text-slate-700">
+                                <select id="docType" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm">
                                     <option value="cit">Citizenship Number</option>
                                     <option value="cert">Certificate ID / Reg No</option>
-                                    <option value="pass">Passport Number</option>
                                 </select>
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-1">Identification Number</label>
-                                <input type="text" id="quickIdInput" placeholder="e.g. 27-01-75-12345" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-emerald-500 text-slate-800">
+                                <input type="text" id="quickIdInput" placeholder="e.g. 27-01-75-12345" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm">
                             </div>
-                            <button type="submit" class="w-full bg-navy-900 hover:bg-emerald-600 text-white font-semibold py-3 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm shadow-md">
-                                <i class="fa-solid fa-search text-emerald-400"></i> Verify Attendance Status
-                            </button>
+                            <button type="submit" class="w-full bg-navy-900 hover:bg-emerald-600 text-white font-semibold py-3 rounded-lg text-sm shadow-md">Verify Attendance Status</button>
                         </form>
-
                         <div id="quickCheckResult" class="hidden mt-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-xs text-emerald-800"></div>
                     </div>
                 </div>
@@ -206,32 +166,20 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center card-hover">
-                    <div class="w-12 h-12 bg-navy-900/10 text-navy-900 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl font-bold">
-                        <i class="fa-solid fa-plane-departure text-emerald-600"></i>
-                    </div>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">40,000+[cite: 4]</div>
-                    <div class="text-xs sm:text-sm font-medium text-slate-600 mt-1">Orientation Trainees[cite: 4]</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900">40,000+</div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-600 mt-1">Orientation Trainees</div>
                 </div>
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center card-hover">
-                    <div class="w-12 h-12 bg-navy-900/10 text-navy-900 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl font-bold">
-                        <i class="fa-solid fa-house-user text-emerald-600"></i>
-                    </div>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">1,100+[cite: 4]</div>
-                    <div class="text-xs sm:text-sm font-medium text-slate-600 mt-1">Housemaid Graduates[cite: 4]</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900">1,100+</div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-600 mt-1">Housemaid Graduates</div>
                 </div>
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center card-hover">
-                    <div class="w-12 h-12 bg-navy-900/10 text-navy-900 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl font-bold">
-                        <i class="fa-solid fa-screwdriver-wrench text-emerald-600"></i>
-                    </div>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">1,300+[cite: 4]</div>
-                    <div class="text-xs sm:text-sm font-medium text-slate-600 mt-1">Skilled Technical Trainees[cite: 4]</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900">1,300+</div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-600 mt-1">Skilled Technical Trainees</div>
                 </div>
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-center card-hover">
-                    <div class="w-12 h-12 bg-navy-900/10 text-navy-900 rounded-xl flex items-center justify-center mx-auto mb-3 text-xl font-bold">
-                        <i class="fa-solid fa-heart-pulse text-emerald-600"></i>
-                    </div>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">200+[cite: 4]</div>
-                    <div class="text-xs sm:text-sm font-medium text-slate-600 mt-1">Caregiver Graduates[cite: 4]</div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900">200+</div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-600 mt-1">Caregiver Graduates</div>
                 </div>
             </div>
         </div>
@@ -242,51 +190,21 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-7 space-y-6">
-                    <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider">
-                        Institutional Profile[cite: 4]
-                    </span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900">
-                        Dedicated to Ethical Migration & Quality Training Since 2061 B.S.[cite: 4]
-                    </h2>
+                    <span class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider">Institutional Profile</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900">Dedicated to Ethical Migration & Quality Training Since 2061 B.S.</h2>
                     <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                        Sangam Management Service is a premier training and management institution located in Tinkune, Kathmandu[cite: 4]. We specialize in preparing prospective migrant workers with comprehensive knowledge, practical skillsets, legal awareness, and workplace health and safety protocols required for foreign employment[cite: 4].
+                        Sangam Management Service is a premier training and management institution located in Tinkune, Kathmandu. We specialize in preparing prospective migrant workers with comprehensive knowledge, practical skillsets, legal awareness, and workplace health and safety protocols.
                     </p>
-
-                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
-                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-                            <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3 font-bold">
-                                <i class="fa-solid fa-eye"></i>
-                            </div>
-                            <h4 class="font-bold text-navy-900 text-base mb-1">Our Vision[cite: 4]</h4>
-                            <p class="text-xs text-slate-500 leading-normal">
-                                To become a trusted and professional training institution that contributes to safe migration, skilled employment, and the overall welfare of Nepali workers worldwide[cite: 4].
-                            </p>
-                        </div>
-                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
-                            <div class="w-8 h-8 rounded-lg bg-navy-50 text-navy-900 flex items-center justify-center mb-3 font-bold">
-                                <i class="fa-solid fa-bullseye"></i>
-                            </div>
-                            <h4 class="font-bold text-navy-900 text-base mb-1">Our Mission[cite: 4]</h4>
-                            <p class="text-xs text-slate-500 leading-normal">
-                                To equip workers with practical skills, rights awareness, occupational safety, and official pre-departure orientation to promote ethical recruitment[cite: 4].
-                            </p>
-                        </div>
-                    </div>
                 </div>
-
                 <div class="lg:col-span-5">
-                    <div class="bg-navy-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
-                        <h3 class="text-xl font-bold mb-4 text-white border-b border-navy-800 pb-3 flex items-center justify-between">
-                            <span>Key Facts</span>
-                            <span class="text-xs font-normal text-emerald-400 bg-navy-800 px-2.5 py-1 rounded">Regd. Entity</span>
-                        </h3>
+                    <div class="bg-navy-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl">
+                        <h3 class="text-xl font-bold mb-4 text-white border-b border-navy-800 pb-3 flex justify-between"><span>Key Facts</span><span class="text-xs font-normal text-emerald-400 bg-navy-800 px-2.5 py-1 rounded">Regd. Entity</span></h3>
                         <ul class="space-y-3.5 text-xs sm:text-sm">
-                            <li class="flex justify-between border-b border-navy-800/60 pb-2"><span class="text-slate-400">Ownership:</span> <span class="font-semibold text-slate-200">Ram Raja Gautam[cite: 4]</span></li>
-                            <li class="flex justify-between border-b border-navy-800/60 pb-2"><span class="text-slate-400">DOFE License:</span> <span class="font-semibold text-emerald-400">032/065/066[cite: 4]</span></li>
-                            <li class="flex justify-between border-b border-navy-800/60 pb-2"><span class="text-slate-400">Housemaid Lic:</span> <span class="font-semibold text-slate-200">07/071/72[cite: 4]</span></li>
-                            <li class="flex justify-between border-b border-navy-800/60 pb-2"><span class="text-slate-400">PAN / VAT:</span> <span class="font-semibold text-slate-200">301741439[cite: 4]</span></li>
-                            <li class="flex justify-between border-b border-navy-800/60 pb-2"><span class="text-slate-400">Location:</span> <span class="font-semibold text-slate-200">Tinkune, Kathmandu[cite: 4]</span></li>
-                            <li class="flex justify-between pt-1"><span class="text-slate-400">Annual Turnover:</span> <span class="font-semibold text-emerald-400">Approx. NPR 25 Lakh[cite: 4]</span></li>
+                            <li class="flex justify-between border-b border-navy-800/60 pb-2"><span class="text-slate-400">Ownership:</span> <span class="font-semibold text-slate-200">Ram Raja Gautam</span></li>
+                            <li class="flex justify-between border-b border-navy-800/60 pb-2"><span class="text-slate-400">DOFE License:</span> <span class="font-semibold text-emerald-400">032/065/066</span></li>
+                            <li class="flex justify-between border-b border-navy-800/60 pb-2"><span class="text-slate-400">Housemaid Lic:</span> <span class="font-semibold text-slate-200">07/071/72</span></li>
+                            <li class="flex justify-between border-b border-navy-800/60 pb-2"><span class="text-slate-400">PAN / VAT:</span> <span class="font-semibold text-slate-200">301741439</span></li>
+                            <li class="flex justify-between pt-1"><span class="text-slate-400">Annual Turnover:</span> <span class="font-semibold text-emerald-400">Approx. NPR 25 Lakh</span></li>
                         </ul>
                     </div>
                 </div>
@@ -298,344 +216,92 @@
     <section id="programs" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider">
-                    Core Offerings[cite: 4]
-                </span>
-                <h2 class="text-3xl font-extrabold text-navy-900">Main Objectives & Training Programs[cite: 4]</h2>
-                <p class="text-slate-600 text-sm sm:text-base">Tailored training modules compliant with government requirements and international standards.</p>
+                <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider">Core Offerings</span>
+                <h2 class="text-3xl font-extrabold text-navy-900">Main Objectives & Training Programs</h2>
             </div>
-
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-navy-900 text-emerald-400 rounded-xl flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-plane-departure"></i></div>
-                        <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-widest block mb-1">Government Mandate</span>
-                        <h3 class="text-xl font-bold text-navy-900 mb-2">Malaysia & Gulf PDOT Orientation[cite: 4]</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed mb-4">Pre-departure orientation cluster program covering employment contracts, labor laws, travel procedures, and worker rights[cite: 4].</p>
-                    </div>
-                    <ul class="text-xs text-slate-500 space-y-2 border-t border-slate-200 pt-4">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> DOFE Approved Syllabus[cite: 4]</li>
-                    </ul>
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 card-hover">
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Malaysia & Gulf PDOT Orientation</h3>
+                    <p class="text-xs text-slate-600">Pre-departure orientation cluster program covering employment contracts, labor laws, travel procedures, and worker rights.</p>
                 </div>
-
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-navy-900 text-emerald-400 rounded-xl flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-broom"></i></div>
-                        <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-widest block mb-1">Licence No. 07/071/72[cite: 4]</span>
-                        <h3 class="text-xl font-bold text-navy-900 mb-2">Housemaid & Domestic Training[cite: 4]</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed mb-4">Comprehensive practical training for prospective domestic workers in household management, hygiene, and communication[cite: 4].</p>
-                    </div>
-                    <ul class="text-xs text-slate-500 space-y-2 border-t border-slate-200 pt-4">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 1,100+ Graduates[cite: 4]</li>
-                    </ul>
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 card-hover">
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Housemaid & Domestic Training</h3>
+                    <p class="text-xs text-slate-600">Comprehensive practical training for prospective domestic workers in household management, hygiene, and communication.</p>
                 </div>
-
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-navy-900 text-emerald-400 rounded-xl flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-user-nurse"></i></div>
-                        <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-widest block mb-1">Health & Elderly Care[cite: 4]</span>
-                        <h3 class="text-xl font-bold text-navy-900 mb-2">Caregiver & Nursing Assistance[cite: 4]</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed mb-4">Basic and practical modules in personal caregiving, elderly care, hygiene management, and vital daily living support[cite: 4].</p>
-                    </div>
-                    <ul class="text-xs text-slate-500 space-y-2 border-t border-slate-200 pt-4">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Supervised by BN Nursing Faculty[cite: 4]</li>
-                    </ul>
-                </div>
-
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-navy-900 text-emerald-400 rounded-xl flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-helmet-safety"></i></div>
-                        <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-widest block mb-1">Vocational Trade[cite: 4]</span>
-                        <h3 class="text-xl font-bold text-navy-900 mb-2">Technical Skill Development[cite: 4]</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed mb-4">Hands-on technical orientation across Civil Overseer modules, Electrical wiring, and Mechanical maintenance[cite: 4].</p>
-                    </div>
-                    <ul class="text-xs text-slate-500 space-y-2 border-t border-slate-200 pt-4">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Civil, Electrical & Mechanical[cite: 4]</li>
-                    </ul>
-                </div>
-
-                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-navy-900 text-emerald-400 rounded-xl flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-laptop-code"></i></div>
-                        <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-widest block mb-1">Digital & Administrative[cite: 4]</span>
-                        <h3 class="text-xl font-bold text-navy-900 mb-2">Management & Online Services[cite: 4]</h3>
-                        <p class="text-xs text-slate-600 leading-relaxed mb-4">Institutional management support, recruitment readiness coordination, and online digital candidate preparation[cite: 4].</p>
-                    </div>
-                    <ul class="text-xs text-slate-500 space-y-2 border-t border-slate-200 pt-4">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Secure Digital Support[cite: 4]</li>
-                    </ul>
-                </div>
-
-                <div class="bg-gradient-to-br from-navy-900 to-navy-950 text-white rounded-2xl p-6 flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 bg-emerald-500 text-navy-950 rounded-xl flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-handshake"></i></div>
-                        <h3 class="text-xl font-bold mb-2">Institutional Partnerships[cite: 4]</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed mb-4">Collaborating with government bodies, recruitment agencies, and international training institutions[cite: 4].</p>
-                    </div>
-                    <a href="#contact" class="w-full bg-emerald-500 text-navy-950 font-bold py-3 rounded-lg text-xs uppercase tracking-wider text-center hover:bg-emerald-400 transition-colors">Inquire For Collaboration[cite: 4]</a>
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 card-hover">
+                    <h3 class="text-xl font-bold text-navy-900 mb-2">Caregiver & Nursing Assistance</h3>
+                    <p class="text-xs text-slate-600">Basic and practical modules in personal caregiving, elderly care, hygiene management, and vital daily living support.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DYNAMIC NEWS & EVENTS SECTION (Connected to Decap CMS) -->
+    <!-- DYNAMIC NEWS & EVENTS SECTION -->
     <section id="news" class="py-20 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
-                <div>
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider">Updates & Notices</span>
-                    <h2 class="text-3xl font-extrabold text-navy-900 mt-2">Latest News & Events</h2>
-                </div>
-                <a href="/admin/" target="_blank" class="bg-navy-900 hover:bg-emerald-600 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition-all shadow-md flex items-center gap-2">
-                    <i class="fa-solid fa-plus text-emerald-400"></i> Add News via CMS Admin
-                </a>
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-extrabold text-navy-900">Latest News & Events</h2>
+                <a href="/admin/" target="_blank" class="bg-navy-900 hover:bg-emerald-600 text-white text-xs font-semibold px-4 py-2.5 rounded-lg">➕ Add News via CMS</a>
             </div>
-            
             <div id="news-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <p class="text-sm text-slate-500 italic">Loading announcements from CMS...</p>
+                <p class="text-sm text-slate-500 italic">Loading announcements...</p>
             </div>
         </div>
     </section>
 
-    <!-- DYNAMIC GALLERY SECTION (Connected to Decap CMS) -->
+    <!-- DYNAMIC GALLERY SECTION -->
     <section id="gallery" class="py-20 bg-white border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
-                <div>
-                    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider">Visual Tour</span>
-                    <h2 class="text-3xl font-extrabold text-navy-900 mt-2">Institutional Gallery & Facilities</h2>
-                </div>
-                <a href="/admin/" target="_blank" class="bg-navy-900 hover:bg-emerald-600 text-white text-xs font-semibold px-4 py-2.5 rounded-lg transition-all shadow-md flex items-center gap-2">
-                    <i class="fa-solid fa-plus text-emerald-400"></i> Add Photos via CMS Admin
-                </a>
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-extrabold text-navy-900">Institutional Gallery & Facilities</h2>
+                <a href="/admin/" target="_blank" class="bg-navy-900 hover:bg-emerald-600 text-white text-xs font-semibold px-4 py-2.5 rounded-lg">➕ Add Photos via CMS</a>
             </div>
-            
             <div id="gallery-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <p class="text-sm text-slate-500 italic">Loading gallery photos from CMS...</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team & Faculty Section -->
-    <section id="team" class="py-20 bg-slate-50 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <span class="px-3 py-1 rounded-full bg-navy-100 text-navy-800 text-xs font-semibold uppercase tracking-wider">Our People[cite: 4]</span>
-                <h2 class="text-3xl font-extrabold text-navy-900">Experienced Leadership & Training Faculty[cite: 4]</h2>
-                <p class="text-slate-600 text-sm">Supported by a multidisciplinary team spanning administration, nursing, engineering, and foreign employment trainers[cite: 4].</p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-5 rounded-2xl border border-slate-200 text-center card-hover">
-                    <div class="w-20 h-20 bg-navy-900 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"><i class="fa-solid fa-user-tie"></i></div>
-                    <h4 class="font-bold text-navy-900 text-base">Ram Raja Gautam[cite: 4]</h4>
-                    <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider block mt-0.5">Owner / Founder[cite: 4]</span>
-                    <p class="text-[11px] text-slate-500 mt-2">Institutional Director leading strategic governance and ethical recruitment[cite: 4].</p>
-                </div>
-
-                <div class="bg-white p-5 rounded-2xl border border-slate-200 text-center card-hover">
-                    <div class="w-20 h-20 bg-navy-900 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"><i class="fa-solid fa-user-gear"></i></div>
-                    <h4 class="font-bold text-navy-900 text-base">Sirjana KC[cite: 4]</h4>
-                    <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider block mt-0.5">Chief Executive Officer[cite: 4]</span>
-                    <p class="text-[11px] text-slate-500 mt-2">Overseeing daily operations, training quality, and regulatory compliance[cite: 4].</p>
-                </div>
-
-                <div class="bg-white p-5 rounded-2xl border border-slate-200 text-center card-hover">
-                    <div class="w-20 h-20 bg-navy-900 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"><i class="fa-solid fa-briefcase"></i></div>
-                    <h4 class="font-bold text-navy-900 text-base">Jharna Khadka[cite: 4]</h4>
-                    <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider block mt-0.5">Manager[cite: 4]</span>
-                    <p class="text-[11px] text-slate-500 mt-2">Coordination of candidate enrollment and center management[cite: 4].</p>
-                </div>
-
-                <div class="bg-white p-5 rounded-2xl border border-slate-200 text-center card-hover">
-                    <div class="w-20 h-20 bg-navy-900 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"><i class="fa-solid fa-user-nurse"></i></div>
-                    <h4 class="font-bold text-navy-900 text-base">Kalpana KC[cite: 4]</h4>
-                    <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider block mt-0.5">Nursing Care (BN)[cite: 4]</span>
-                    <p class="text-[11px] text-slate-500 mt-2">Head of caregiver, healthcare protocols, and hygiene training[cite: 4].</p>
-                </div>
-            </div>
-
-            <div class="mt-8 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8">
-                <h4 class="text-sm font-bold text-navy-900 uppercase tracking-wider mb-4 border-b border-slate-100 pb-3 flex items-center gap-2">
-                    <i class="fa-solid fa-users text-emerald-600"></i> Full Operational & Training Faculty[cite: 4]
-                </h4>
-                <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-xs">
-                    <div class="p-3 bg-slate-50 rounded-lg"><span class="font-bold text-slate-800">Dipika Khadka</span> - Accounts[cite: 4]</div>
-                    <div class="p-3 bg-slate-50 rounded-lg"><span class="font-bold text-slate-800">Siddartha Gautam</span> - Marketing[cite: 4]</div>
-                    <div class="p-3 bg-slate-50 rounded-lg"><span class="font-bold text-slate-800">Sabita Khadka</span> - Office Assistant[cite: 4]</div>
-                    <div class="p-3 bg-slate-50 rounded-lg"><span class="font-bold text-slate-800">Manoj Kumar Raut</span> - Orientation[cite: 4]</div>
-                    <div class="p-3 bg-slate-50 rounded-lg"><span class="font-bold text-slate-800">Geeta Gautam</span> - FE TOT Trainer[cite: 4]</div>
-                    <div class="p-3 bg-slate-50 rounded-lg"><span class="font-bold text-slate-800">Mandira Adhikari</span> - FE TOT Trainer[cite: 4]</div>
-                    <div class="p-3 bg-slate-50 rounded-lg"><span class="font-bold text-slate-800">Sony Shrestha</span> - Housemaid / Caregiver[cite: 4]</div>
-                    <div class="p-3 bg-slate-50 rounded-lg"><span class="font-bold text-slate-800">Sanjay Poudel</span> - Civil Overseer[cite: 4]</div>
-                    <div class="p-3 bg-slate-50 rounded-lg"><span class="font-bold text-slate-800">Shyam Shrestha</span> - Electrical Training[cite: 4]</div>
-                    <div class="p-3 bg-slate-50 rounded-lg"><span class="font-bold text-slate-800">Krishna Lal Shrestha</span> - Mechanical[cite: 4]</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-12 gap-12">
-                <div class="lg:col-span-5 space-y-6">
-                    <div>
-                        <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider">Get In Touch</span>
-                        <h2 class="text-3xl font-extrabold text-navy-900 mt-2">Visit Our Orientation Center[cite: 4]</h2>
-                        <p class="text-slate-600 text-sm mt-2">Our team is available for candidate inquiries, agency coordination, and orientation registration[cite: 4].</p>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
-                            <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg shrink-0"><i class="fa-solid fa-location-dot"></i></div>
-                            <div>
-                                <h4 class="font-bold text-navy-900 text-sm">Location Address</h4>
-                                <p class="text-xs text-slate-600 mt-0.5">Tinkune, Kathmandu, Nepal[cite: 4]</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
-                            <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg shrink-0"><i class="fa-solid fa-phone"></i></div>
-                            <div>
-                                <h4 class="font-bold text-navy-900 text-sm">Phone Lines[cite: 4]</h4>
-                                <p class="text-xs text-slate-600 mt-0.5">Telephone: 01-4111646 / 01-4511646[cite: 4]</p>
-                                <p class="text-xs text-slate-600">Mobile: 98510610065 / 9803090950[cite: 4]</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
-                            <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg shrink-0"><i class="fa-solid fa-envelope"></i></div>
-                            <div>
-                                <h4 class="font-bold text-navy-900 text-sm">Email & Facebook[cite: 4]</h4>
-                                <p class="text-xs text-slate-600 mt-0.5">sangammgmt5@gmail.com[cite: 4]</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-7">
-                    <div class="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-                        <h3 class="text-xl font-bold text-navy-900 mb-2">Send Us an Inquiry</h3>
-                        <p class="text-xs text-slate-500 mb-6">Fill out the form below and our coordination officer will contact you.</p>
-                        <form onsubmit="handleContactSubmit(event)" class="space-y-4">
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div><label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Full Name</label><input type="text" required placeholder="e.g. Ram Bahadur" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm"></div>
-                                <div><label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Contact Number</label><input type="tel" required placeholder="e.g. 9800000000" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm"></div>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Program of Interest</label>
-                                <select class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm">
-                                    <option>Malaysia / Gulf Pre-Departure Orientation[cite: 4]</option>
-                                    <option>Housemaid & Domestic Training[cite: 4]</option>
-                                    <option>Caregiver Assistance Training[cite: 4]</option>
-                                    <option>Technical Trade Skill[cite: 4]</option>
-                                </select>
-                            </div>
-                            <div><label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Message</label><textarea rows="4" required class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5 text-sm"></textarea></div>
-                            <button type="submit" class="w-full bg-navy-900 hover:bg-emerald-600 text-white font-semibold py-3 rounded-lg text-sm shadow-md">Submit Message</button>
-                        </form>
-                        <div id="contactFormMsg" class="hidden mt-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-xs text-emerald-800 text-center">Thank you! Your message has been sent successfully.</div>
-                    </div>
-                </div>
+                <p class="text-sm text-slate-500 italic">Loading gallery photos...</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-navy-950 text-slate-400 text-xs py-12 border-t border-navy-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div class="space-y-3">
-                    <span class="text-base font-bold text-white block">SANGAM MANAGEMENT SERVICE[cite: 4]</span>
-                    <p class="text-slate-400 leading-relaxed text-xs">Government approved institution providing pre-departure orientation and vocational skills in Tinkune, Kathmandu[cite: 4].</p>
-                </div>
-                <div>
-                    <h5 class="text-white font-semibold text-sm mb-3">Quick Links</h5>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="hover:text-emerald-400">About Profile[cite: 4]</a></li>
-                        <li><a href="#programs" class="hover:text-emerald-400">Training Programs[cite: 4]</a></li>
-                        <li><a href="#news" class="hover:text-emerald-400">News & Events</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="text-white font-semibold text-sm mb-3">Official Credentials[cite: 4]</h5>
-                    <ul class="space-y-2">
-                        <li>DOFE License: 032/065/066[cite: 4]</li>
-                        <li>Housemaid License: 07/071/72[cite: 4]</li>
-                        <li>Company Reg: 30833/061/062[cite: 4]</li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="text-white font-semibold text-sm mb-3">Office Location[cite: 4]</h5>
-                    <p class="text-slate-400 leading-relaxed">Tinkune, Kathmandu, Nepal[cite: 4]<br>Tel: 01-4111646[cite: 4]</p>
-                </div>
-            </div>
-            <div class="pt-8 border-t border-navy-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
-                <div>&copy; 2026 Sangam Management Service[cite: 4]. All Rights Reserved.</div>
-                <div class="flex items-center gap-4">
-                    <button onclick="openVerificationModal()" class="hover:text-emerald-400">Online Certificate Verification</button>
-                </div>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2026 Sangam Management Service. All Rights Reserved. Tinkune, Kathmandu.</p>
         </div>
     </footer>
 
     <!-- Verification Modal -->
     <div id="verifyModal" class="fixed inset-0 bg-navy-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100">
-            <button onclick="closeVerificationModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
-            <div class="flex items-center gap-3 mb-6">
-                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xl"><i class="fa-solid fa-shield-halved"></i></div>
-                <div>
-                    <h3 class="font-bold text-navy-900 text-lg">Certificate Verification Portal</h3>
-                    <p class="text-xs text-slate-500">Sangam Management Service Official Records[cite: 4]</p>
-                </div>
-            </div>
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+            <button onclick="closeVerificationModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="font-bold text-navy-900 text-lg mb-4">Certificate Verification Portal</h3>
             <form onsubmit="handleModalCheck(event)" class="space-y-4">
-                <div><label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Search Identifier</label><input type="text" id="modalIdInput" placeholder="Enter Citizenship No. or Certificate ID" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm"></div>
-                <button type="submit" class="w-full bg-navy-900 hover:bg-emerald-600 text-white font-semibold py-3 rounded-lg text-sm shadow-md">Verify Document Status</button>
+                <input type="text" id="modalIdInput" placeholder="Enter Citizenship No. or Certificate ID" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm">
+                <button type="submit" class="w-full bg-navy-900 hover:bg-emerald-600 text-white font-semibold py-3 rounded-lg text-sm">Verify Status</button>
             </form>
-            <div id="modalCheckResult" class="hidden mt-4 p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs"></div>
+            <div id="modalCheckResult" class="hidden mt-4 p-4 bg-slate-50 border rounded-xl text-xs"></div>
         </div>
     </div>
 
-    <!-- JavaScript for CMS Dynamic Loading & Interactivity -->
+    <!-- Scripts -->
     <script>
-        let currentLang = 'EN';
-        function toggleLanguage() {
-            currentLang = currentLang === 'EN' ? 'NP' : 'EN';
-            document.getElementById('currentLangLabel').innerText = currentLang === 'EN' ? 'EN | नेपाली' : 'नेपाली | EN';
-            document.querySelectorAll('[data-lang-en]').forEach(el => {
-                if (currentLang === 'NP' && el.getAttribute('data-lang-np')) el.innerText = el.getAttribute('data-lang-np');
-                else if (currentLang === 'EN' && el.getAttribute('data-lang-en')) el.innerText = el.getAttribute('data-lang-en');
-            });
-        }
-
-        function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
         function openVerificationModal() { document.getElementById('verifyModal').classList.remove('hidden'); }
-        function closeVerificationModal() { document.getElementById('verifyModal').classList.add('hidden'); document.getElementById('modalCheckResult').classList.add('hidden'); }
-
+        function closeVerificationModal() { document.getElementById('verifyModal').classList.add('hidden'); }
         function handleQuickCheck(e) {
             e.preventDefault();
             const val = document.getElementById('quickIdInput').value.trim();
             const res = document.getElementById('quickCheckResult');
             res.classList.remove('hidden');
-            res.innerHTML = `<div class="font-bold text-emerald-800 mb-1"><i class="fa-solid fa-circle-check text-emerald-600"></i> Record Verified in System</div><div><strong>Identifier:</strong> ${val}</div><div><strong>Status:</strong> Orientation Completed & Issued[cite: 4]</div><div><strong>Center:</strong> Sangam Management Service, Tinkune[cite: 4]</div>`;
+            res.innerHTML = `<div class="font-bold text-emerald-800">✓ Record Verified for ${val} (DOFE Lic: 032/065/066)</div>`;
         }
-
         function handleModalCheck(e) {
             e.preventDefault();
             const val = document.getElementById('modalIdInput').value.trim();
             document.getElementById('modalCheckResult').classList.remove('hidden');
-            document.getElementById('modalCheckResult').innerHTML = `<div class="text-emerald-700 font-bold"><i class="fa-solid fa-square-check text-emerald-600"></i> Official Record Found[cite: 4]</div><div class="mt-2"><p><strong>ID:</strong> ${val}</p><p><strong>Status:</strong> Successfully Verified (DOFE Lic: 032/065/066)[cite: 4]</p></div>`;
+            document.getElementById('modalCheckResult').innerHTML = `<div class="text-emerald-700 font-bold">✓ Official Record Found: ${val} (Sangam Management Service)</div>`;
         }
 
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            document.getElementById('contactFormMsg').classList.remove('hidden');
-            e.target.reset();
-        }
-
-        // Fetch Dynamic Decap CMS Data from GitHub Repository folders
+        // Fetch CMS Data
         async function loadCMSContent() {
-            // Load News
             try {
                 const res = await fetch('https://api.github.com/repos/Anjanlcm/sangam-website/contents/data/news');
                 const files = await res.json();
@@ -644,26 +310,13 @@
                     container.innerHTML = '';
                     for (const file of files) {
                         if (file.name.endsWith('.json')) {
-                            const itemRes = await fetch(file.download_url);
-                            const item = await itemRes.json();
-                            container.innerHTML += `
-                                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-hover flex flex-col justify-between shadow-sm">
-                                    <div>
-                                        ${item.image ? `<img src="${item.image}" class="w-full h-48 object-cover rounded-xl mb-4" alt="News Image">` : ''}
-                                        <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md">${item.date || 'Notice'}</span>
-                                        <h3 class="text-lg font-bold text-navy-900 mt-3 mb-2">${item.title}</h3>
-                                        <p class="text-sm text-slate-600 leading-relaxed">${item.description}</p>
-                                    </div>
-                                </div>
-                            `;
+                            const item = await (await fetch(file.download_url)).json();
+                            container.innerHTML += `<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">${item.image ? `<img src="${item.image}" class="w-full h-48 object-cover rounded-xl mb-4">` : ''}<span class="text-xs text-emerald-600 font-semibold">${item.date || ''}</span><h3 class="text-lg font-bold text-navy-900 mt-2">${item.title}</h3><p class="text-sm text-slate-600 mt-2">${item.description}</p></div>`;
                         }
                     }
                 }
-            } catch (err) {
-                document.getElementById('news-container').innerHTML = '<p class="text-sm text-slate-500">No news articles published yet.</p>';
-            }
+            } catch (e) { document.getElementById('news-container').innerHTML = '<p class="text-sm text-slate-500">No news articles yet.</p>'; }
 
-            // Load Gallery
             try {
                 const res = await fetch('https://api.github.com/repos/Anjanlcm/sangam-website/contents/data/gallery');
                 const files = await res.json();
@@ -672,20 +325,12 @@
                     container.innerHTML = '';
                     for (const file of files) {
                         if (file.name.endsWith('.json')) {
-                            const itemRes = await fetch(file.download_url);
-                            const item = await itemRes.json();
-                            container.innerHTML += `
-                                <div class="bg-white p-3 rounded-2xl border border-slate-200 card-hover shadow-sm">
-                                    <img src="${item.image}" class="w-full h-56 object-cover rounded-xl mb-3" alt="Gallery Photo">
-                                    <h4 class="text-sm font-semibold text-navy-900 px-1 text-center">${item.title}</h4>
-                                </div>
-                            `;
+                            const item = await (await fetch(file.download_url)).json();
+                            container.innerHTML += `<div class="bg-white p-3 rounded-2xl border shadow-sm"><img src="${item.image}" class="w-full h-56 object-cover rounded-xl mb-3"><h4 class="text-sm font-semibold text-navy-900 text-center">${item.title}</h4></div>`;
                         }
                     }
                 }
-            } catch (err) {
-                document.getElementById('gallery-container').innerHTML = '<p class="text-sm text-slate-500">No gallery photos added yet.</p>';
-            }
+            } catch (e) { document.getElementById('gallery-container').innerHTML = '<p class="text-sm text-slate-500">No gallery photos yet.</p>'; }
         }
         loadCMSContent();
     </script>
