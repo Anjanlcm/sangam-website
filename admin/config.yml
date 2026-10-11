@@ -24,8 +24,11 @@ collections:
     folder: "data/gallery"
     create: true
     format: "json"
+    identifier_field: "id"   # <-- Fixes the error by auto-generating a unique ID!
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Entry Name / Batch Note", name: "title", widget: "string", required: false, hint: "Optional label for this batch"}
+      - {label: "ID / Batch Name", name: "id", widget: "string", default: "gallery-batch"}
+      - {label: "Entry Note / Title", name: "title", widget: "string", required: false}
       - label: "Photos List"
         name: "photos"
         widget: "list"
