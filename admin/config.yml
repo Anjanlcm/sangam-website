@@ -1,32 +1,29 @@
 backend:
   name: github
-  repo: YOUR_GITHUB_USERNAME/sangam-website  # <-- Update with your GitHub username/repo
+  repo: Anjanlcm/sangam-website
   branch: main
+  base_url: https://decap-cms-oauth.vercel.app
 
 media_folder: "images/uploads"
-public_folder: "images/uploads"
+public_folder: "/images/uploads"
 
-files:
+collections:
   - name: "news"
     label: "News & Events"
-    file: "data/news.json"
+    folder: "data/news"
+    create: true
+    format: "json"
     fields:
-      - label: "News Articles"
-        name: "items"
-        widget: "list"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Date", name: "date", widget: "string"}
-          - {label: "Image", name: "image", widget: "image", required: false}
-          - {label: "Description", name: "description", widget: "text"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "string"}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+      - {label: "Description", name: "description", widget: "text"}
 
   - name: "gallery"
     label: "Gallery Photos"
-    file: "data/gallery.json"
+    folder: "data/gallery"
+    create: true
+    format: "json"
     fields:
-      - label: "Photos"
-        name: "items"
-        widget: "list"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Image", name: "image", widget: "image"}
+      - {label: "Photo Title", name: "title", widget: "string"}
+      - {label: "Photo Image", name: "image", widget: "image"}
