@@ -20,13 +20,30 @@
             }
         }
     </script>
-    <style>.card-hover { transition: all 0.3s ease; } .card-hover:hover { transform: translateY(-4px); box-shadow: 0 15px 25px -5px rgba(0,0,0,0.1); }</style>
+    <style>
+        .card-hover { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .card-hover:hover { transform: translateY(-6px); box-shadow: 0 25px 30px -10px rgba(0, 0, 0, 0.12); }
+        
+        /* Cinematic Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-up { transform: translateY(70px); }
+        .reveal-down { transform: translateY(-70px); }
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+    </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 antialiased">
+    <!-- Navigation Header -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
             <a href="index.html" class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center text-emerald-500 font-bold text-2xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center text-emerald-500 font-bold text-2xl shadow-md"><i class="fa-solid fa-graduation-cap"></i></div>
                 <div><span class="block text-xl font-extrabold text-navy-900 leading-none">SANGAM</span><span class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Management Service</span></div>
             </a>
             <nav class="hidden md:flex items-center gap-7 font-medium text-slate-600 text-sm">
@@ -38,17 +55,20 @@
         </div>
     </header>
 
-    <section class="bg-navy-900 text-white py-16 text-center">
+    <!-- Page Header -->
+    <section class="bg-navy-900 text-white py-16 text-center reveal reveal-down">
         <h1 class="text-3xl sm:text-4xl font-extrabold">Institutional Gallery & Facilities</h1>
         <p class="text-slate-300 text-sm mt-2">Explore photos of our training rooms, orientation sessions, and facilities. Click any image to view larger.</p>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Full Gallery Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal reveal-up">
         <div id="full-gallery-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <p class="text-sm text-slate-500 italic">Loading gallery photos...</p>
         </div>
     </section>
 
+    <!-- Lightbox Modal -->
     <div id="imageModal" class="fixed inset-0 bg-navy-950/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-emerald-400 focus:outline-none"><i class="fa-solid fa-xmark"></i></button>
         <div class="max-w-4xl w-full text-center space-y-3">
@@ -57,11 +77,64 @@
         </div>
     </div>
 
-    <footer class="bg-navy-950 text-slate-400 text-xs py-8 text-center border-t border-navy-900">
-        <p>&copy; 2026 Sangam Management Service. All Rights Reserved.</p>
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-slate-400 text-xs py-16 border-t border-navy-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div>
+                <span class="text-base font-bold text-white block mb-2">SANGAM MANAGEMENT SERVICE</span>
+                <p class="text-slate-400 leading-relaxed text-xs">Government approved & MLVK Malaysia affiliated training and management institution in Tinkune, Kathmandu, Nepal.</p>
+            </div>
+            <div>
+                <h5 class="text-white font-semibold text-sm mb-3">Quick Links</h5>
+                <ul class="space-y-2">
+                    <li><a href="index.html#about" class="hover:text-emerald-400">Institutional Profile</a></li>
+                    <li><a href="index.html#programs" class="hover:text-emerald-400">Training Programmes</a></li>
+                    <li><a href="news.html" class="hover:text-emerald-400">All News</a></li>
+                    <li><a href="gallery.html" class="hover:text-emerald-400">Full Gallery</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-semibold text-sm mb-3">Official Credentials</h5>
+                <ul class="space-y-2">
+                    <li>DOFE License: 032/065/066</li>
+                    <li>Housemaid License: 07/071/72</li>
+                    <li>Company Reg: 30833/061/062</li>
+                    <li>VAT No: 301741439</li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-semibold text-sm mb-3">Contact Information</h5>
+                <p class="text-slate-400 leading-relaxed">Tinkune, Kathmandu, Nepal<br>Tel: 01-4111646 / 01-4511646<br>Mobile: 98510610065<br>Email: sangammgmt5@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-navy-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
+            <div>
+                &copy; 2026 Sangam Management Service. All Rights Reserved.
+            </div>
+            <div class="flex items-center gap-4">
+                <span>Designed & Developed by <a href="https://lamichhaneanjan.com.np/" target="_blank" class="text-white font-semibold hover:text-emerald-400 underline transition">Anjan Lamichhane</a></span>
+                <a href="https://gofund.me/35a5d9ce1" target="_blank" title="Support via GoFundMe" class="w-8 h-8 rounded-full bg-navy-900 border border-navy-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-500 hover:text-navy-950 transition-all shadow-md">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                </a>
+            </div>
+        </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
+        const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -80px 0px' };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
         function openModal(imgSrc, caption) {
             document.getElementById('modalImage').src = imgSrc;
             document.getElementById('modalCaption').innerText = caption || '';
