@@ -14,25 +14,25 @@ collections:
     create: true
     format: "json"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "string"}
-      - {label: "Featured Image", name: "image", widget: "image", required: false}
-      - {label: "Description", name: "description", widget: "text"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "string" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Description", name: "description", widget: "text" }
 
   - name: "gallery"
     label: "Gallery Photos"
     folder: "data/gallery"
     create: true
     format: "json"
-    identifier_field: "id"   # <-- Fixes the error by auto-generating a unique ID!
+    identifier_field: "id"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "ID / Batch Name", name: "id", widget: "string", default: "gallery-batch"}
-      - {label: "Entry Note / Title", name: "title", widget: "string", required: false}
+      - { label: "ID / Batch Name", name: "id", widget: "string", default: "gallery-batch" }
+      - { label: "Entry Note / Title", name: "title", widget: "string", required: false }
       - label: "Photos List"
         name: "photos"
         widget: "list"
-        summary: '{{fields.image}}'
+        summary: "{{fields.image}}"
         fields:
-          - {label: "Photo Image", name: "image", widget: "image"}
-          - {label: "Caption / Title", name: "caption", widget: "string", required: false}
+          - { label: "Photo Image", name: "image", widget: "image" }
+          - { label: "Caption / Title", name: "caption", widget: "string", required: false }

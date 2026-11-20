@@ -23,8 +23,7 @@
     <style>
         .card-hover { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .card-hover:hover { transform: translateY(-6px); box-shadow: 0 25px 30px -10px rgba(0, 0, 0, 0.12); }
-        
-        /* Cinematic Scroll Reveal Animations */
+
         .reveal {
             opacity: 0;
             transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
@@ -108,44 +107,99 @@
         </div>
     </footer>
 
-    <script>
+<script>
         const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -80px 0px' };
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
+                    obs.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        async function loadAllNews() {
-            try {
-                const res = await fetch('https://api.github.com/repos/Anjanlcm/sangam-website/contents/data/news');
-                const files = await res.json();
-                const container = document.getElementById('full-news-container');
-                if (container && Array.isArray(files)) {
-                    container.innerHTML = '';
-                    for (const file of files) {
-                        if (file.name.endsWith('.json')) {
-                            const item = await (await fetch(file.download_url)).json();
-                            container.innerHTML += `
-                                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
-                                    <div>
-                                        ${item.image ? `<img src="${item.image}" class="w-full h-48 object-cover rounded-xl mb-4" alt="News Image">` : ''}
-                                        <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md">${item.date || 'Notice'}</span>
-                                        <h3 class="text-lg font-bold text-navy-900 mt-3 mb-2">${item.title}</h3>
-                                        <p class="text-sm text-slate-600 leading-relaxed">${item.description}</p>
-                                    </div>
-                                </div>
-                            `;
-                        }
-                    }
-                }
-            } catch (e) { document.getElementById('full-news-container').innerHTML = '<p class="text-sm text-slate-500">No news articles published yet.</p>'; }
+        function normalizeAssetUrl(url) {
+            if (!url || typeof url !== 'string') return '';
+            const cleaned = url.split('](')[0].trim();
+            if (/^https?:\/\//i.test(cleaned)) return cleaned;
+            return cleaned.replace(/^\/+/, '');
         }
+
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function toggleReadMore(btn) {
+            const wrapper = btn.closest('.news-desc-wrapper');
+            const shortEl = wrapper.querySelector('.news-short');
+            const fullEl = wrapper.querySelector('.news-full');
+            const isExpanded = !fullEl.classList.contains('hidden');
+
+            if (isExpanded) {
+                fullEl.classList.add('hidden');
+                shortEl.classList.remove('hidden');
+                btn.innerHTML = 'Read More <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i>';
+            } else {
+                shortEl.classList.add('hidden');
+                fullEl.classList.remove('hidden');
+                btn.innerHTML = 'Read Less <i class="fa-solid fa-chevron-up text-[10px] ml-1"></i>';
+            }
+        }
+
+        function renderNewsCard(item) {
+            const imgSrc = normalizeAssetUrl(item.image);
+            const rawDesc = String(item.description || '').trim();
+            const MAX_CHARS = 180;
+            const isLong = rawDesc.length > MAX_CHARS;
+            const shortDesc = isLong
+                ? rawDesc.slice(0, MAX_CHARS).replace(/\s+\S*$/, '') + '...'
+                : rawDesc;
+
+            return `
+                <article class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        ${imgSrc ? `<img src="${escapeHtml(imgSrc)}" class="w-full h-48 object-cover rounded-xl mb-4" alt="${escapeHtml(item.title || 'News Image')}" loading="lazy">` : ''}
+                        <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md">${escapeHtml(item.date || 'Notice')}</span>
+                        <h3 class="text-lg font-bold text-navy-900 mt-3 mb-2">${escapeHtml(item.title || '')}</h3>
+                        <div class="news-desc-wrapper text-sm text-slate-600 leading-relaxed">
+                            <p class="news-short whitespace-pre-line">${escapeHtml(shortDesc)}</p>
+                            ${isLong ? `
+                                <p class="news-full hidden whitespace-pre-line">${escapeHtml(rawDesc)}</p>
+                                <button type="button" onclick="toggleReadMore(this)" class="mt-2 inline-flex items-center text-xs font-bold text-emerald-600 hover:text-emerald-700 focus:outline-none">
+                                    Read More <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i>
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        async function loadAllNews() {
+            const container = document.getElementById('full-news-container');
+            try {
+                const res = await fetch('data/news-manifest.json', { cache: 'no-cache' });
+                if (!res.ok) throw new Error('Failed to load news manifest');
+                const items = await res.json();
+
+                if (!Array.isArray(items) || items.length === 0) {
+                    container.innerHTML = '<p class="text-sm text-slate-500">No news articles published yet.</p>';
+                    return;
+                }
+
+                container.innerHTML = items.map(renderNewsCard).join('');
+            } catch (e) {
+                container.innerHTML = '<p class="text-sm text-slate-500">Unable to load announcements right now.</p>';
+            }
+        }
+
         loadAllNews();
     </script>
 </body>

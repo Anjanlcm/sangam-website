@@ -23,8 +23,7 @@
     <style>
         .card-hover { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         .card-hover:hover { transform: translateY(-6px); box-shadow: 0 25px 30px -10px rgba(0, 0, 0, 0.12); }
-        
-        /* Cinematic Scroll Reveal Animations */
+
         .reveal {
             opacity: 0;
             transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
@@ -39,11 +38,10 @@
     </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 antialiased">
-    <!-- Navigation Header -->
     <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
             <a href="index.html" class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center text-emerald-500 font-bold text-2xl shadow-md"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center text-emerald-500 font-bold text-2xl"><i class="fa-solid fa-graduation-cap"></i></div>
                 <div><span class="block text-xl font-extrabold text-navy-900 leading-none">SANGAM</span><span class="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Management Service</span></div>
             </a>
             <nav class="hidden md:flex items-center gap-7 font-medium text-slate-600 text-sm">
@@ -55,20 +53,17 @@
         </div>
     </header>
 
-    <!-- Page Header -->
     <section class="bg-navy-900 text-white py-16 text-center reveal reveal-down">
         <h1 class="text-3xl sm:text-4xl font-extrabold">Institutional Gallery & Facilities</h1>
         <p class="text-slate-300 text-sm mt-2">Explore photos of our training rooms, orientation sessions, and facilities. Click any image to view larger.</p>
     </section>
 
-    <!-- Full Gallery Grid -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 reveal reveal-up">
         <div id="full-gallery-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <p class="text-sm text-slate-500 italic">Loading gallery photos...</p>
         </div>
     </section>
 
-    <!-- Lightbox Modal -->
     <div id="imageModal" class="fixed inset-0 bg-navy-950/90 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-emerald-400 focus:outline-none"><i class="fa-solid fa-xmark"></i></button>
         <div class="max-w-4xl w-full text-center space-y-3">
@@ -77,7 +72,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="bg-navy-950 text-slate-400 text-xs py-16 border-t border-navy-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             <div>
@@ -121,19 +115,28 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
         const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -80px 0px' };
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
+                    obs.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        function normalizeAssetUrl(url) {
+            if (!url || typeof url !== 'string') return '';
+            if (/^https?:\/\//i.test(url)) return url;
+            return url.replace(/^\/+/, '');
+        }
+
+        function escapeAttr(str) {
+            return String(str || '').replace(/&/g, '&amp;').replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+        }
 
         function openModal(imgSrc, caption) {
             document.getElementById('modalImage').src = imgSrc;
@@ -145,45 +148,42 @@
         }
 
         async function loadFullGallery() {
+            const container = document.getElementById('full-gallery-container');
             try {
-                const res = await fetch('https://api.github.com/repos/Anjanlcm/sangam-website/contents/data/gallery');
-                const files = await res.json();
-                const container = document.getElementById('full-gallery-container');
-                if (container && Array.isArray(files)) {
-                    container.innerHTML = '';
-                    let hasPhotos = false;
-                    for (const file of files) {
-                        if (file.name.endsWith('.json')) {
-                            const item = await (await fetch(file.download_url)).json();
-                            if (item.photos && Array.isArray(item.photos)) {
-                                for (const p of item.photos) {
-                                    if (p.image) {
-                                        hasPhotos = true;
-                                        container.innerHTML += `
-                                            <div class="bg-white p-3 rounded-2xl border border-slate-200 card-hover shadow-sm cursor-pointer" onclick="openModal('${p.image}', '${p.caption || ''}')">
-                                                <img src="${p.image}" class="w-full h-56 object-cover rounded-xl ${p.caption ? 'mb-3' : ''}" alt="Gallery Photo">
-                                                ${p.caption ? `<h4 class="text-sm font-semibold text-navy-900 px-1 text-center truncate">${p.caption}</h4>` : ''}
-                                            </div>
-                                        `;
-                                    }
-                                }
-                            } else if (item.image) {
-                                hasPhotos = true;
-                                container.innerHTML += `
-                                    <div class="bg-white p-3 rounded-2xl border border-slate-200 card-hover shadow-sm cursor-pointer" onclick="openModal('${item.image}', '${item.title || ''}')">
-                                        <img src="${item.image}" class="w-full h-56 object-cover rounded-xl ${item.title ? 'mb-3' : ''}" alt="Gallery Photo">
-                                        ${item.title ? `<h4 class="text-sm font-semibold text-navy-900 px-1 text-center truncate">${item.title}</h4>` : ''}
-                                    </div>
-                                `;
+                const res = await fetch('data/gallery-manifest.json', { cache: 'no-cache' });
+                if (!res.ok) throw new Error('Failed to load gallery manifest');
+                const items = await res.json();
+                const photos = [];
+
+                if (Array.isArray(items)) {
+                    for (const item of items) {
+                        if (Array.isArray(item.photos)) {
+                            for (const p of item.photos) {
+                                const src = normalizeAssetUrl(p && p.image);
+                                if (src) photos.push({ src, caption: p.caption || item.title || '' });
                             }
+                        } else {
+                            const src = normalizeAssetUrl(item && item.image);
+                            if (src) photos.push({ src, caption: item.title || item.caption || '' });
                         }
                     }
-                    if (!hasPhotos) {
-                        container.innerHTML = '<p class="text-sm text-slate-500">No gallery photos added yet.</p>';
-                    }
                 }
-            } catch (e) { document.getElementById('full-gallery-container').innerHTML = '<p class="text-sm text-slate-500">No gallery photos added yet.</p>'; }
+
+                if (photos.length === 0) {
+                    container.innerHTML = '<p class="text-sm text-slate-500">No gallery photos added yet.</p>';
+                } else {
+                    container.innerHTML = photos.map(p => `
+                        <div class="bg-white p-3 rounded-2xl border border-slate-200/80 card-hover shadow-sm cursor-pointer" onclick="openModal('${escapeAttr(p.src)}', '${escapeAttr(p.caption)}')">
+                            <img src="${escapeAttr(p.src)}" class="w-full h-56 object-cover rounded-xl ${p.caption ? 'mb-3' : ''}" alt="${escapeAttr(p.caption || 'Gallery Photo')}" loading="lazy">
+                            ${p.caption ? `<h4 class="text-sm font-semibold text-navy-900 px-1 text-center truncate">${escapeAttr(p.caption)}</h4>` : ''}
+                        </div>
+                    `).join('');
+                }
+            } catch (e) {
+                container.innerHTML = '<p class="text-sm text-slate-500">Unable to load gallery photos right now.</p>';
+            }
         }
+
         loadFullGallery();
     </script>
 </body>

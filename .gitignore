@@ -1,0 +1,6 @@
+
+# Ignored manifest files
+data/gallery-manifest.json
+data/news-manifest.json
+gallery-manifests.mjs
+news-manifests.mjs
